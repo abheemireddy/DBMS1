@@ -927,6 +927,21 @@ Athlete_id
 20	
 33	
 
+25. Counts the number of athletes belong to country
+
+SELECT COUNT(athlete_id), Country 
+FROM athlete 
+GROUP BY Country 
+HAVING COUNT(athlete_id) > 5
+
+
+
+COUNT(athlete_id)	Country	
+
+21	China	
+
+12	USA
+
 Query din't work
 ///
 
