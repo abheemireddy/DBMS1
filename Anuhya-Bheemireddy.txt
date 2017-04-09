@@ -44,7 +44,7 @@ INSERT INTO `athlete` (`Athlete_id`, `Name`, `DOB`, `Gender`, `Country`,`age`) V
 (30, ' Gary Antuanne russell', '1996-07-14', 'M', 'USA','20'),
 (31, ' Charles Conwell', '1997-11-02', 'M', 'USA','21'),
 (32, ' Mikaela Mayer', '1990-07-04', 'F', 'USA','28'),
-(33, ' Claressa Shields', '1995-03-17', 'F', 'USA','21');-- --------------------------------------------------------
+(33, ' Claressa Shields', '1995-03-17', 'F', 'USA','21');
 
 
 CREATE TABLE `athlete_belong` (
@@ -103,11 +103,7 @@ INSERT INTO `boxing` (`Event_id`, `B_category`) VALUES
 (7003, 'Bantamweight'),
 (7004, 'Lightweight');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `coach`
---
 
 CREATE TABLE `coach` (
   `Coach_id` int(16) NOT NULL,
