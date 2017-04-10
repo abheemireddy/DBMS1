@@ -1,35 +1,42 @@
-<!DOCTYPE html>
 <html>
 <body>
+<form action="one.php" method="post">
+<label for="ID">Athlete_id</label>
+<input type="number" name="Athlete_id" id="Athlete_id">
+<br/>
+
+
+<input type="submit" name="search" id="search">
+<br/>
+
+</form>
+
 <?php
-$Athlete_id="";
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-	$conn = new mysqli('localhost', 'user', 'passwd', 'testing');
-	if($conn->connect_error){
-		echo "connection failed";
-		die("connection failed:" . $conn->connect_error);
-	}
-$Athlete_id=$_POST['Athlete_id'];
-$resultSet= mysql_query("select * from athlete ");
-if($resultSet->num_rows != 0){
-	while($rows = $resultSet->fetch_assoc()){
-		$Athlete_id= $rows['Athlete_id'];
-		$Name=$rows['Name'];
-		$DOB=$rows ['DOB'];
-		$Gender = $rows['Gender'];
-		$Country= $rows ['Country'];
-		$Age=$rows['Age'];
+
+$server="localhost";
+$db="olympics";
+$user="root";
+$pass="";
+
+$con=mysqli_connect($server, $user, $pass, $db) or die ("Connection Failed");
+if($con==true)
+{
+ echo "Connection Success<br/> <br/>" . "\xA" . "\xA". "\xA". "\xA";
 }
+$Athlete_id = "";
+$Athlete_id = isset($_POST['Athlete_id']) ? $_POST['Athlete_id'] : '';
+
+$query="Select * from athlete where Athlete_id ='$Athlete_id'";
+$fetch = mysqli_query($con,$query) or die (mysql_error());
+while($rows=mysqli_fetch_assoc($fetch)or die (mysql_error())) {
+        echo  $rows['Athlete_id']. "\xA". "\xA". "\xA";
+		echo $rows['Name']. "\xA". "\xA";
+		echo  $rows ['DOB']. "\xA". "\xA". "\xA";
+		echo  $rows['Gender']. "\xA". "\xA". "\xA";
+		echo  $rows ['Country']. "\xA". "\xA";
+	   echo   $rows['Age']. "\xA". "\xA";
 }
-
-else{
-	echo "search didn't get hit";
-}
-
-
-
-
 
 ?>
 </body>
-</html>
+</html> 
